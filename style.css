@@ -1,134 +1,104 @@
-/* ---------- RESET ---------- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
-body, html {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #ff85a1, #ff4d6d);
+/* Body & Background */
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(to top, #ffb6c1, #ffe4e1);
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  margin: 0;
   overflow-x: hidden;
-  position: relative;
 }
 
-/* ---------- BACKGROUND ---------- */
-.background {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.stars::before {
-  content:'';
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: white;
-  box-shadow:
-    10vw 20vh white,
-    20vw 30vh white,
-    30vw 40vh white,
-    40vw 10vh white,
-    50vw 60vh white,
-    60vw 20vh white,
-    70vw 50vh white,
-    80vw 30vh white,
-    90vw 70vh white;
-  animation: twinkle 2s infinite alternate;
-}
-
-@keyframes twinkle {
-  from { opacity: 0.3; }
-  to { opacity: 1; }
-}
-
-/* Sparkles */
-.sparkles {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-/* ---------- CARD ---------- */
 .card {
-  position: relative;
-  z-index: 2;
   background: white;
-  border-radius: 25px;
   padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  text-align: center;
   max-width: 400px;
-  width: 90%;
-  text-align: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  position: relative;
 }
 
-.card h1 { color: #ff4d6d; font-size: 28px; margin-bottom: 10px; }
-.card .subtitle { font-size: 16px; margin-bottom: 20px; color: #333; }
-
-/* ---------- FORM ---------- */
-form { display: flex; flex-direction: column; margin-bottom: 20px; }
-
-input[type="text"] {
-  padding: 10px 15px;
-  font-size: 16px;
-  border-radius: 25px;
-  border: 2px solid #ff4d6d;
-  margin-bottom: 12px;
-  outline: none;
-  text-align: center;
-}
-
-input[type="text"]:focus { border-color: #ff85a1; }
-
-/* ---------- BUTTONS ---------- */
-button {
-  cursor: pointer;
+/* Buttons */
+.primary {
+  background-color: #ff69b4;
+  color: white;
   border: none;
-  border-radius: 30px;
-  font-size: 16px;
-  padding: 12px 22px;
-  margin: 8px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-button:hover { transform: scale(1.1); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.secondary {
+  background-color: #ff1493;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
-.primary { background: #ff4d6d; color: white; }
-.secondary { background: #ff85a1; color: white; }
-.no { background: #f2f2f2; color: #ff4d6d; border: 2px solid #ff4d6d; position: relative; }
-.music-control { position: fixed; top: 10px; right: 10px; z-index: 10; border-radius: 25px; padding: 10px 20px; background:black; color:pink; }
+.no {
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
-/* ---------- RESPONSE ---------- */
-.hidden { display: none; }
-#response h2 { color: #ff4d6d; margin-bottom: 10px; }
+/* Hidden class */
+.hidden {
+  display: none;
+}
 
-/* ---------- FLOATING HEARTS ---------- */
+h1 {
+  color: #ff1493;
+}
+
+.subtitle {
+  font-style: italic;
+  color: #ff69b4;
+}
+
+/* Floating Hearts */
 .heart {
-  position: absolute;
-  bottom: -10px;
-  font-size: 24px;
-  animation: floatUp linear infinite;
+  position: fixed;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  background: url('https://em-content.zobj.net/thumbs/120/apple/354/heart_2764-fe0f.png') no-repeat center center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 9999;
+  animation: floatUp linear forwards;
 }
 
 @keyframes floatUp {
-  0% { transform: translateY(0) rotate(0deg); opacity:1; }
-  50% { transform: rotate(15deg); }
-  100% { transform: translateY(-100vh) rotate(-15deg); opacity:0; }
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-500px) scale(1.2);
+    opacity: 0;
+  }
 }
 
-/* ---------- MOBILE ---------- */
-@media (max-width: 400px) {
-  .card { padding: 20px; }
-  .card h1 { font-size: 24px; }
-  button, input[type="text"] { padding: 10px 18px; font-size: 14px; }
+/* Music button */
+.music-control {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #ff69b4;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 10000;
 }
