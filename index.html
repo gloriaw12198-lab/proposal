@@ -1,31 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Galentine's Proposal</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be My Valentine 💖</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="container">
-    <h1>
-      Will you be my Galentine?
-    </h1>
-
-    <p class="message">
-      Because you're amazing,
-      <span class="name">
-        💕 Pauline 💕
-      </span>
-    </p>
-
-    <button id="yesBtn">Yes, I'm in! 💖</button>
-
-    <p id="response" class="hidden">
-      Yayyy! 💐 Best Galentine ever 💕
-    </p>
+  <!-- Background -->
+  <div class="background">
+    <div class="stars"></div>
+    <div class="sparkles"></div>
   </div>
+
+  <!-- Music -->
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="Audio/mpeg">
+  </audio>
+  <button id="musicBtn" class="music-control">Play 🎵</button>
+
+  <!-- Valentine Card -->
+  <main class="card">
+    <h1>💘 Will You Be My Valentine? 💘</h1>
+    <p class="subtitle">Enter your name to make it official ✨</p>
+
+    <!-- Form -->
+    <form id="valentineForm">
+      <input type="text" id="nameInput" placeholder="Your Name" required>
+      <button type="submit" class="primary">Submit 💕</button>
+    </form>
+
+    <!-- Buttons -->
+    <div class="buttons hidden" id="loveButtons">
+      <button id="yesBtn" class="primary">Yes 💖</button>
+      <button id="ofCourseBtn" class="secondary">Of course 💖</button>
+      <button id="noBtn" class="no">No 😅</button>
+    </div>
+
+    <!-- Response -->
+    <section id="response" class="hidden">
+      <h2>Yay! 🥰💖</h2>
+      <p id="responseMessage"></p>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
